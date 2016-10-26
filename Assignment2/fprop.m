@@ -61,7 +61,7 @@ hidden_layer_state = 1 ./ (1 + exp(-inputs_to_hidden_units));
 %% COMPUTE STATE OF OUTPUT LAYER.
 % Compute inputs to softmax.
 % FILL IN CODE. Replace the line below by one of the options.
-inputs_to_softmax = zeros(vocab_size, batchsize);
+inputs_to_softmax = hid_to_output_weights' * hidden_layer_state +  repmat(output_bias, 1, batchsize);
 % Options
 % (a) inputs_to_softmax = hid_to_output_weights' * hidden_layer_state +  repmat(output_bias, 1, batchsize);
 % (b) inputs_to_softmax = hid_to_output_weights' * hidden_layer_state +  repmat(output_bias, batchsize, 1);
